@@ -1,0 +1,46 @@
+
+{
+java:S2293j"YReplace the type specification in this constructor call with the diamond operator ("<>").(°¦Ş„úÿÿÿÿ8ÈÎ­í©0
+f
+java:S1192-"IDefine a constant instead of duplicating this literal "user.dir" 3 times.(ıõÿÉ8ÉÎ­í©0
+t
+java:S1104""RMake driver a static final constant or non-public and provide accessors if needed.(ÜçÁÈûÿÿÿÿ8ÌÎ­í©0
+t
+java:S1104#"RMake action a static final constant or non-public and provide accessors if needed.(˜şıøÿÿÿÿ8ÌÎ­í©0
+p
+java:S1104$"SMake extentR a static final constant or non-public and provide accessors if needed.(ı¼ú·8ÌÎ­í©0
+x
+java:S1104%"VMake extentTest a static final constant or non-public and provide accessors if needed.(‡Ñµ¾ÿÿÿÿÿ8ÌÎ­í©0
+t
+java:S1104&"RMake logger a static final constant or non-public and provide accessors if needed.(³Æ“Ïüÿÿÿÿ8ÍÎ­í©0
+v
+java:S1104'"YMake sparkReporter a static final constant or non-public and provide accessors if needed.(µ×ú¡8ÍÎ­í©0
+N
+java:S1444"",Make this "public static driver" field final(ÜçÁÈûÿÿÿÿ8ÍÎ­í©0
+N
+java:S1444#",Make this "public static action" field final(˜şıøÿÿÿÿ8ÍÎ­í©0
+J
+java:S1444$"-Make this "public static extentR" field final(ı¼ú·8ÍÎ­í©0
+R
+java:S1444%"0Make this "public static extentTest" field final(‡Ñµ¾ÿÿÿÿÿ8ÍÎ­í©0
+N
+java:S1444&",Make this "public static logger" field final(³Æ“Ïüÿÿÿÿ8ÎÎ­í©0
+P
+java:S1444'"3Make this "public static sparkReporter" field final(µ×ú¡8ÎÎ­í©0
+i	java:S101 "MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(®ƒç”8ÎÎ­í©0
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(½—ÿ•8ÑÎ­í©0
+S
+java:S2696-"6Make the enclosing method "static" or remove this set.(ıõÿÉ8äÎ­í©0
+S
+java:S26962"6Make the enclosing method "static" or remove this set.( §åİ8èÎ­í©0
+S
+java:S26965"6Make the enclosing method "static" or remove this set.(ˆÿÌ8éÎ­í©0
+]	java:S125@"<This block of commented-out lines of code should be removed.(ø‹´úÿÿÿÿ8ëÎ­í©0
+]
+java:S1117e"@Rename "capabilities" which hides the field declared at line 40.(Ğ¦ñó8ñÎ­í©0
+X
+java:S2696r"6Make the enclosing method "static" or remove this set.(¯ƒÊşÿÿÿÿ8õÎ­í©0
+S
+java:S2696w"6Make the enclosing method "static" or remove this set.(Âéã±8÷Î­í©0
+S
+java:S2696{"6Make the enclosing method "static" or remove this set.(Î°¸ó8úÎ­í©0

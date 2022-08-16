@@ -1,0 +1,15 @@
+
+n
+java:S1104"XMake htmlReporter a static final constant or non-public and provide accessors if needed.(È£ÿ
+m
+java:S1104"RMake extent a static final constant or non-public and provide accessors if needed.(ÆÍ¿…øÿÿÿÿ
+f
+java:S1104"PMake test a static final constant or non-public and provide accessors if needed.(ô¿‘–
+H
+java:S1444"2Make this "public static htmlReporter" field final(È£ÿ
+G
+java:S1444",Make this "public static extent" field final(ÆÍ¿…øÿÿÿÿ
+@
+java:S1444"*Make this "public static test" field final(ô¿‘–
+U
+java:S1118":Add a private constructor to hide the implicit public one.(¯ŸÁŒÿÿÿÿÿ

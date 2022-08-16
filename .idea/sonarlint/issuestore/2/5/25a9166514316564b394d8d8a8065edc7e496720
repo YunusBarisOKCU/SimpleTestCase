@@ -1,0 +1,20 @@
+
+j
+java:S1104"OMake url a static final constant or non-public and provide accessors if needed.(¾ĞÀÄşÿÿÿÿ
+m
+java:S1104	"WMake emailAdress a static final constant or non-public and provide accessors if needed.(õé†Í
+j
+java:S1104
+"TMake password a static final constant or non-public and provide accessors if needed.(¼°¹³
+D
+java:S1444")Make this "public static url" field final(¾ĞÀÄşÿÿÿÿ
+G
+java:S1444	"1Make this "public static emailAdress" field final(õé†Í
+D
+java:S1444
+".Make this "public static password" field final(¼°¹³
+ 
+java:S1598"‚This file "Constants.java" should be located in "dataPorter" directory, not in "C:\Users\yunus\Desktop\SimpleTestCase\Z_Obsolete".(€Ï´8Åì÷€ª0
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(€Ï´
+U
+java:S1118":Add a private constructor to hide the implicit public one.(“³±ûÿÿÿÿ

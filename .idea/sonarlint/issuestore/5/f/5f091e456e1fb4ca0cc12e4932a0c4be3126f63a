@@ -1,0 +1,13 @@
+
+q
+java:S1104"OMake Log a static final constant or non-public and provide accessors if needed.(ËÇº®øÿÿÿÿ8ÅîÍ˜ª0
+K
+java:S1444")Make this "public static Log" field final(ËÇº®øÿÿÿÿ8ÆîÍ˜ª0
+4
+java:S1700"Rename field "Log"(ËÇº®øÿÿÿÿ8ÇîÍ˜ª0
+p
+java:S3008"NRename this field "Log" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ËÇº®øÿÿÿÿ8ËîÍ˜ª0
+H
+java:S3416"&Update this logger to use "Log.class".(ËÇº®øÿÿÿÿ8ÌîÍ˜ª0
+W
+java:S1118":Add a private constructor to hide the implicit public one.(é¥ùö8Ò¿²”ª0

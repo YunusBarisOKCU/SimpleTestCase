@@ -1,0 +1,14 @@
+
+µ
+java:S1598"—This file "WriteGuru99ExcelFile.java" should be located in "excelExportAndFileIO" directory, not in "C:\Users\yunus\Desktop\SimpleTestCase\Z_Obsolete".(¯×²‰8ôöÍè©0
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¯×²‰8ôöÍè©0
+i
+java:S2259?"LA "NullPointerException" could be thrown; "guru99Workbook" is nullable here.(ëÆ²ñ8•÷Íè©0
+l
+java:S20959"JUse try-with-resources or close this "HSSFWorkbook" in a "finally" clause.(ó«¿Çüÿÿÿÿ8•÷Íè©0
+g
+java:S2095/"JUse try-with-resources or close this "XSSFWorkbook" in a "finally" clause.(åºƒÂ8•÷Íè©0
+o
+java:S2095!"MUse try-with-resources or close this "FileInputStream" in a "finally" clause.(¶ÈÖëşÿÿÿÿ8•÷Íè©0
+C
+java:S1075"&Remove this hard-coded path-delimiter.(ÙüÖ‚8œ÷Íè©0
