@@ -32,7 +32,7 @@ public class TempPage extends BasePage {
     private WebElement btnLogin;
     @FindBy(xpath="//*[@id=\"ap_password\"]")
     private WebElement txtPassword;
-    @FindBy(xpath="//*[@id=\"auth-signin-button\"]")
+    @FindBy(xpath="--//*[@id=\"auth-signin-button\"]")
     private WebElement btnEmailSelect;
 
     //mainpageafterlogin
@@ -77,11 +77,11 @@ public class TempPage extends BasePage {
 
 
 
-
-
     public TempPage() {
         PageFactory.initElements(getDriver(), this);
     }
+
+
 
     public String launchCheckUrl(String url) throws Throwable {
         if(launchUrl(url))
@@ -138,7 +138,6 @@ public class TempPage extends BasePage {
         action.click(getDriver(),firstProductInLikedListLink);
         action.click(getDriver(),addToCartButton);
         return addedToCartNotification.getText().contains("Sepete Eklendi");
-
     }
 
     public boolean removeFromCart() {

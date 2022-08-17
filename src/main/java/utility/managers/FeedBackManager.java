@@ -18,14 +18,14 @@ public class FeedBackManager  {
         ExtentManager.extentInfo(logInfo);
 
         Log.info(logInfo);
-        exel.exportToXL(new String[]{step, result, s});
+        exel.exportToExel(new String[]{step, result, s});
     }
 
     public void Log(String test, String result, String s) throws IOException {
         String logInfo=test+"  "+result+"  "+s;
 
         Log.info(logInfo);
-        exel.exportToXL(new String[]{test, result, s});
+        exel.exportToExel(new String[]{test, result, s});
     }
 
 }

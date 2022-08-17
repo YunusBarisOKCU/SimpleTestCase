@@ -1,8 +1,0 @@
-
-f
-java:S1104"PMake exel a static final constant or non-public and provide accessors if needed.(öêñ’
-@
-java:S1444"*Make this "public static exel" field final(öêñ’
-<
-java:S3010"!Remove this assignment of "exel".(Ú‚íşÿÿÿÿ
-h	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(â‰­Ûúÿÿÿÿ
