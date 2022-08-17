@@ -32,7 +32,7 @@ public class TempPage extends BasePage {
     private WebElement btnLogin;
     @FindBy(xpath="//*[@id=\"ap_password\"]")
     private WebElement txtPassword;
-    @FindBy(xpath="--//*[@id=\"auth-signin-button\"]")
+    @FindBy(xpath="//*[@id=\"auth-signin-button\"]")
     private WebElement btnEmailSelect;
 
     //mainpageafterlogin
