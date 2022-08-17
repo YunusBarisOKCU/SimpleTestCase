@@ -5,7 +5,7 @@ import org.testng.ITestResult;
 
 public class RetryAnalyser implements IRetryAnalyzer {
     int count=0;
-    int retryCount=2;
+    int retryCount=0;//hata sonrasındaki tekrar deneme sayısı
 
     @Override
     public boolean retry(ITestResult iTestResult) {
