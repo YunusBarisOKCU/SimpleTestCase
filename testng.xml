@@ -5,9 +5,9 @@
         <listener class-name="utility.SuiteListener"/>
     </listeners>
     <test name="Test Automation">
-        <parameter name="browserName" value="chrome" />
+        <parameter name="browserName" value="Chrome" />
         <classes>
-            <class name="tests.OptiimTest"></class>
+            <class name="tests.OptiimTest"/>
         </classes>
     </test>
 </suite>

@@ -1,0 +1,169 @@
+@startuml
+class pageObjects.TempPage {
++ {static} String likedProductID
+~ Action action
+- WebElement tempElement
+- WebElement signInLoginDiv
+- WebElement signInButton
+- WebElement userNameTextBox
+- WebElement btnLogin
+- WebElement txtPassword
+- WebElement btnEmailSelect
+- WebElement searchBox
+- WebElement searchBoxButton
+- WebElement listItemMobilePhone
+- WebElement paginationButton
+- WebElement paginationButtonClicked
+- WebElement isSearchedElementListOnPage
+- WebElement fiftElement
+- WebElement addToList
+- WebElement viewYourListButton
+- WebElement popUpCloseButton
+- WebElement likedListButton
+- WebElement firstProductInLikedList
+- WebElement firstProductInLikedListLink
+- WebElement addToCartButton
+- WebElement addedToCartNotification
+- WebElement navCart
+- WebElement removeFirstItemFromCart
+- WebElement tempElemente
++ String launchCheckUrl(String)
++ boolean login(String,String)
++ boolean searchSpecificProduct(String)
++ boolean goAndCheckIfSecondPage()
++ boolean chooseLikeCheck()
++ boolean getLikedProductIDfromList()
++ boolean productCartCheck()
++ boolean removeFromCart()
+}
+class tests.OptiimTest {
+- TempPage tempPage
++ void optiimMulakatTesti(String,String,String)
+}
+class dataPorter.ExelBase {
++ {static} String path
++ FileInputStream fis
++ FileOutputStream fileOut
+- XSSFWorkbook workbook
+- XSSFSheet sheet
+- XSSFRow row
+- XSSFCell cell
++ ınt getRowCount(String)
++ ınt getColumnCount(String)
++ String getCellData(String,ınt,ınt)
++ boolean isSheetExist(String)
+}
+class utility.SuiteListener {
+~ Action action
+~ FeedBackManager f
++ void onTestStart(ITestResult)
++ void onTestSuccess(ITestResult)
++ void onTestFailure(ITestResult)
++ void onTestSkipped(ITestResult)
++ void onTestFailedButWithinSuccessPercentage(ITestResult)
++ void onTestFailedWithTimeout(ITestResult)
++ void onStart(ITestContext)
++ void onFinish(ITestContext)
++ void transform(ITestAnnotation,Class,Constructor,Method)
+}
+class pageObjects.TempPageTemplate {
+- WebElement pageObject
++ boolean pageMethodTemplate()
+}
+class dataPorter.ExportToXL {
+~ String filePath
+~ String fileName
+~ String sheetName
+~ File file
+~ FileInputStream inputStream
+~ FileOutputStream outputStream
+~ Workbook workBook
+~ Sheet sheet
++ void exportToExel(String[])
+- void Initialize()
+- void Export(String[])
+- void StreamFlush()
+}
+class base.BaseClass {
++ {static} ThreadLocal<RemoteWebDriver> driver
++ {static} Actions actionBase
++ void Initialize()
++ void beforeMethodMethod(String,Method)
++ void afterMethodMethod()
++ void afterSuite()
++ void setupDriver(String)
++ {static} WebDriver getDriver()
+}
+class pageObjects.BasePage {
+~ Action action
+- WebElement tempElement
++ boolean methodTemplate()
++ String getCurrURL()
++ boolean launchUrl(String)
+}
+interface actioninterface.ActionInterface {
++ void click(WebDriver,WebElement)
++ boolean isDisplayed(WebDriver,WebElement)
++ boolean type(WebElement,String)
++ boolean findElement(WebDriver,WebElement)
++ boolean Alert(WebDriver)
++ boolean launchUrl(WebDriver,String)
++ String getCurrentURL(WebDriver)
++ String screenShot(WebDriver,String)
+}
+class dataPorter.ImportFromXL {
+~ ExelBase obj
++ Object[][] getConstants()
+}
+class actiondriver.Action {
++ void click(WebDriver,WebElement)
++ boolean findElement(WebDriver,WebElement)
++ boolean isDisplayed(WebDriver,WebElement)
++ boolean type(WebElement,String)
++ boolean Alert(WebDriver)
++ boolean launchUrl(WebDriver,String)
++ String getCurrentURL(WebDriver)
++ String screenShot(WebDriver,String)
+}
+class utility.managers.FeedBackManager {
++ {static} ExportToXL exel
++ void infoLog(String,String,String)
++ void Log(String,String,String)
+}
+class utility.managers.Log {
++ {static} Logger Log
++ {static} void startTestCase(String)
++ {static} void endTestCase(String)
++ {static} void info(String)
++ {static} void warn(String)
++ {static} void error(String)
++ {static} void fatal(String)
++ {static} void debug(String)
+}
+class utility.RetryAnalyser {
+~ ınt count
+~ ınt retryCount
++ boolean retry(ITestResult)
+}
+class utility.managers.ExtentManager {
++ {static} ExtentHtmlReporter htmlReporter
++ {static} ExtentReports extent
++ {static} ExtentTest test
++ {static} void setExtent()
++ {static} void endReport()
++ {static} void extentInfo(String)
++ {static} void extentLog(Status,String)
+}
+
+
+pageObjects.BasePage <|-- pageObjects.TempPage
+base.BaseClass <|-- tests.OptiimTest
+org.testng.ITestListener <|.. utility.SuiteListener
+org.testng.IAnnotationTransformer <|.. utility.SuiteListener
+utility.managers.ExtentManager <|-- utility.SuiteListener
+pageObjects.BasePage <|-- pageObjects.TempPageTemplate
+base.BaseClass <|-- pageObjects.BasePage
+actioninterface.ActionInterface <|.. actiondriver.Action
+base.BaseClass <|-- actiondriver.Action
+org.testng.IRetryAnalyzer <|.. utility.RetryAnalyser
+@enduml
