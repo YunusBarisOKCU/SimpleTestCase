@@ -18,7 +18,7 @@ public class BaseClass {
 
     public static ThreadLocal<RemoteWebDriver> driver = new ThreadLocal<>();//paralel test koşumu için selenium doc
     public static Actions actionBase;
-    //DesiredCapabilities capabilities = new DesiredCapabilities(); //obsolete Bonigarcia dan sonra
+    //DesiredCapabilities capabilities = new DesiredCapabilities(); //   !!obsolete Bonigarcia dan sonra
 
     @BeforeSuite
     public void Initialize(){
@@ -52,7 +52,7 @@ public class BaseClass {
             String logText = "TestCase: " + methodName + " Failed";
             Markup m = MarkupHelper.createLabel(logText, ExtentColor.RED);
             extentTest.log(Status.FAIL,m);
-        }*///obsolete Suite Listenerden Sonra
+        }*///   !!obsolete Suite Listenerden Sonra
 
     }
 
@@ -65,7 +65,6 @@ public class BaseClass {
     public void setupDriver(String browserName){
         if (browserName.equalsIgnoreCase("Chrome")) {
             WebDriverManager.chromedriver().setup();
-            // Set Browser to ThreadLocalMap
             driver.set(new ChromeDriver());
         } else if (browserName.equalsIgnoreCase("FireFox")) {
             WebDriverManager.firefoxdriver().setup();
@@ -82,6 +81,7 @@ public class BaseClass {
         getDriver().manage().timeouts().implicitlyWait(4,TimeUnit.SECONDS);
         //PageLoad TimeOuts
         getDriver().manage().timeouts().pageLoadTimeout(10,TimeUnit.SECONDS);
+
         /*else {
             ChromeOptions options = new ChromeOptions();
             capabilities .setCapability("browserName",browserName);
@@ -101,7 +101,7 @@ public class BaseClass {
             driver = new ChromeDriver(options);
             driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
             System.out.println("if(browserName.equalsIgnoreCase(\"chrome\"))   sonu");
-        }*///Obsolete Bonigarcia geçişden sonra
+        }*///   !!Obsolete Bonigarcia geçişden sonra
     }
 
     public static WebDriver getDriver() {

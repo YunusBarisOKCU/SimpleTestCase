@@ -107,7 +107,7 @@ public class Action extends BaseClass implements ActionInterface {
 	 * 
 	 */
 	@Override
-	public boolean Alert(WebDriver driver) {
+	public boolean alert(WebDriver driver) {
 		boolean presentFlag = false;
 		Alert alert = null;
 

@@ -63,7 +63,6 @@ public class SuiteListener extends ExtentManager implements ITestListener, IAnno
                 test.fail("ScreenShot is Attached", MediaEntityBuilder.createScreenCaptureFromPath(fileName + ".png").build());*/
 
             } catch (IOException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }

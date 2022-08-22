@@ -12,7 +12,6 @@ public class ExelBase {
 
     public static String path = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TestInputs.xlsx";
 
-    //	public  String path;
     public FileInputStream fis = null;
     public FileOutputStream fileOut = null;
     private XSSFWorkbook workbook = null;
@@ -22,14 +21,13 @@ public class ExelBase {
 
     public ExelBase() {
 
-        this.path=path;
+        this.path=path; //  Constructor overload edilip path değiştirilirse diye
         try {
             fis = new FileInputStream(path);
             workbook = new XSSFWorkbook(fis);
             sheet = workbook.getSheetAt(0);
             fis.close();
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
@@ -43,7 +41,6 @@ public class ExelBase {
             sheet = workbook.getSheetAt(0);
             fis.close();
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }

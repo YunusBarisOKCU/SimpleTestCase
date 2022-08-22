@@ -64,7 +64,7 @@ public class TempPage extends BasePage {
     private WebElement firstProductInLikedList;
     @FindBy(xpath = "//*[@id=\"g-items\"]/li[2]//*[@class=\"a-size-base\"]/a")
     private WebElement firstProductInLikedListLink;
-    @FindBy(xpath = "//*[@id=\"add-to-cart-button\"]")
+    @FindBy(id = "add-to-cart-button")
     private WebElement addToCartButton;
     @FindBy(xpath = "//*[@id=\"sw-atc-details-single-container\"]/div[2]/div/span")
     private WebElement addedToCartNotification;

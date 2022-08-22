@@ -34,6 +34,7 @@ public class ExportToXL {
 
     private void Initialize(){
         try{
+            //TODO -RW işlemlerini Dosya, sayfa yada sayfa başlıkları olmaması gibi durumlara karşı uygun hale getir.
             this.file = new File(filePath);
             this.inputStream = new FileInputStream(file);
             this.workBook = new XSSFWorkbook(inputStream);
