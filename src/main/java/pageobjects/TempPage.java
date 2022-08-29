@@ -1,13 +1,10 @@
-package pageObjects;
+package pageobjects;
 
 import actiondriver.Action;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utility.managers.Log;
-
-import java.util.List;
 
 //
 public class TempPage extends BasePage {

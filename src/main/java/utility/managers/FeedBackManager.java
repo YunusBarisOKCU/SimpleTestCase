@@ -1,15 +1,15 @@
 package utility.managers;
 
-import dataPorter.ExportToXL;
+import dataporter.ExportToXL;
 
 import java.io.IOException;
 
 public class FeedBackManager  {
-    public static ExportToXL exel;
+    private static ExportToXL exel=new ExportToXL();
 
-    public FeedBackManager() {
+    /*public FeedBackManager() {
         exel=new ExportToXL();
-    }
+    }*/
 
 
     public void infoLog(String step, String result, String s) throws IOException {
@@ -18,14 +18,14 @@ public class FeedBackManager  {
         ExtentManager.extentInfo(logInfo);
 
         Log.info(logInfo);
-        exel.exportToExel(new String[]{step, result, s});
+        exel.exportToExcel(new String[]{step, result, s});
     }
 
     public void Log(String test, String result, String s) throws IOException {
         String logInfo=test+"  "+result+"  "+s;
 
         Log.info(logInfo);
-        exel.exportToExel(new String[]{test, result, s});
+        exel.exportToExcel(new String[]{test, result, s});
     }
 
 }

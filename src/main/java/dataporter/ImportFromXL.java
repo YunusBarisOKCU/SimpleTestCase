@@ -1,4 +1,4 @@
-package dataPorter;
+package dataporter;
 
 import org.testng.annotations.DataProvider;
 

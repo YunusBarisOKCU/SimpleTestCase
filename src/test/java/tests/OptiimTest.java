@@ -1,10 +1,10 @@
 package tests;
 
 import base.BaseClass;
-import dataPorter.ImportFromXL;
+import dataporter.ImportFromXL;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pageObjects.TempPage;
+import pageobjects.TempPage;
 import utility.managers.FeedBackManager;
 import utility.managers.Log;
 

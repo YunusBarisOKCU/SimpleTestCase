@@ -1,6 +1,6 @@
-package dataPorter;
+package dataporter;
 
-import dataPorter.ImportFromXL.*;
+import dataporter.ImportFromXL.*;
 
 public class Constants {
 
