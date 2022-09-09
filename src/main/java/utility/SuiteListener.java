@@ -2,7 +2,6 @@ package utility;
 
 import actiondriver.Action;
 import base.BaseClass;
-import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
@@ -11,31 +10,26 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 import org.testng.annotations.ITestAnnotation;
-import utility.managers.ExtentManager;
-import utility.managers.FeedBackManager;
 
-import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 
-public class SuiteListener extends ExtentManager implements ITestListener, IAnnotationTransformer {
-    /*ExtentTest test;*/
+public class SuiteListener implements ITestListener, IAnnotationTransformer {
     Action action= new Action();
-    FeedBackManager f=new FeedBackManager();
+    FeedBackManager feedBackManager =new FeedBackManager();
 
     @Override
     public void onTestStart(ITestResult result) {
-        /*test = ((ExtentTestObject) result.getInstance()).test;*/
-        test = extent.createTest(result.getName());
+        feedBackManager.createExtentTest(result.getName());
     }
 
     @Override
     public void onTestSuccess(ITestResult result) {
         if (result.getStatus() == ITestResult.SUCCESS) {
-            test.log(Status.PASS, result.getName() + "Testi Başarı ile sonlanmıştır");
             try {
-                f.Log(result.getName()+"Testi", "ITestResult="+result.getStatus()+"ile Sonlanmıştır", "");
-            } catch (IOException e) {
+                feedBackManager.log(Status.PASS, result.getName() + " Testi Başarı ile sonlanmıştır");
+                //feedBackManager.log(result.getName()+"Testi", "ITestResult="+result.getStatus()+"ile Sonlanmıştır", "");
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
@@ -43,18 +37,15 @@ public class SuiteListener extends ExtentManager implements ITestListener, IAnno
 
     @Override
     public void onTestFailure(ITestResult result) {
-
-
         if (result.getStatus() == ITestResult.FAILURE) {
             try {
-                test.log(Status.FAIL,MarkupHelper.createLabel(result.getName() + " - Test Case Failed", ExtentColor.RED));
-                test.log(Status.FAIL,MarkupHelper.createLabel(result.getThrowable() + " - Test Case Failed", ExtentColor.RED));
-                f.Log(result.getName()+"Testi", "ITestResult="+result.getStatus()+" ile Sonlanmıştır.","HataKodu:"+result.getThrowable().toString());
-
+                feedBackManager.log(Status.FAIL,MarkupHelper.createLabel(result.getName() + " - Test Case Failed", ExtentColor.RED));
+                feedBackManager.log(Status.FAIL,MarkupHelper.createLabel(result.getThrowable() + " - Test Case Failed", ExtentColor.RED));
+                //feedBackManager.log(result.getName()+" Testi", "ITestResult="+result.getStatus()+" ile Sonlanmıştır.","HataKodu:"+result.getThrowable().toString());
 
                 String imgPath = action.screenShot(BaseClass.getDriver(), result.getName());
 
-                test.fail("ScreenShot is Attached", MediaEntityBuilder.createScreenCaptureFromPath(imgPath).build());
+                feedBackManager.testFailScreenshot(imgPath);
 
                 /*String fileName = System.getProperty(System.getProperty("user.dir")+ File.separator+"screenShots"+File.separator+"failShot");
                 File f = ((TakesScreenshot) BaseClass.getDriver()).getScreenshotAs((OutputType.FILE));
@@ -62,7 +53,7 @@ public class SuiteListener extends ExtentManager implements ITestListener, IAnno
 
                 test.fail("ScreenShot is Attached", MediaEntityBuilder.createScreenCaptureFromPath(fileName + ".png").build());*/
 
-            } catch (IOException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
@@ -71,10 +62,10 @@ public class SuiteListener extends ExtentManager implements ITestListener, IAnno
     @Override
     public void onTestSkipped(ITestResult result) {
         if (result.getStatus() == ITestResult.SKIP) {
-            test.log(Status.SKIP, "Skipped Test case is: " + result.getName());
             try {
-                f.Log(result.getName()+"Testi", result.getStatus()+"ile Sonlanmıştır",result.getThrowable().toString());
-            } catch (IOException e) {
+                feedBackManager.log(Status.SKIP, "Skipped Test case is: " + result.getName());
+                //feedBackManager.log(result.getName()+"Testi", result.getStatus()+"ile Sonlanmıştır",result.getThrowable().toString());
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }

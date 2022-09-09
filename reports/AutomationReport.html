@@ -13,7 +13,7 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 	<link href='https://cdn.rawgit.com/extent-framework/extent-github-cdn/b65cd69/v3html/css/extent.css' type='text/css' rel='stylesheet' />
 	
-	<title>Automation Report (optiim)</title>
+	<title>Automation Report</title>
 
 	<style type='text/css'>
 		/* json-tree */
@@ -44,7 +44,7 @@
 		<!-- nav-right -->
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<a href='#!'>
-			<span class='label blue darken-3 suite-start-time'>Aug 29, 2022 09:24:01 PM</span>
+			<span class='label blue darken-3 suite-start-time'>Sep 9, 2022 04:14:13 PM</span>
 			</a>
 		</ul>
 	</div>
@@ -59,7 +59,7 @@
 				<i class='material-icons'>warning</i> Status
 				</a>
 				<ul id='tests-toggle' class='dropdown-content'>
-										<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+										<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
 					<li class='divider'></li>
 					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
 				</ul>
@@ -102,10 +102,10 @@
                     <canvas id='parent-analysis' width='90' height='70'></canvas>
                 </div>
                 <div class='block text-small'>
-                    <span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>1</span> test(s) passed</span>
+                    <span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> test(s) passed</span>
                 </div>
                 <div class='block text-small'>
-                    <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+                    <span class='strong tooltipped' data-position='top' data-tooltip='100%'>1</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
                 </div>
             </div>
         </div>
@@ -123,17 +123,17 @@
 </div>	<div class='subview-left left'>
 		<div class='view-summary'>
 			<ul id='test-collection' class='test-collection'>
-				<li class='test displayed active  pass' status='pass' bdd='false' test-id='1'>
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='1'>
 					<div class='test-heading'>
-						<span class='test-name'>optiimMulakatTesti</span>
-						<span class='test-time'>Aug 29, 2022 09:24:03 PM</span>
-						<span class='test-status right pass'>pass</span>
+						<span class='test-name'>EndToEndTest</span>
+						<span class='test-time'>Sep 9, 2022 04:14:15 PM</span>
+						<span class='test-status right fail'>fail</span>
 					</div>
 					<div class='test-content hide'>
 <div class='test-time-info'>
-	<span class='label start-time'>Aug 29, 2022 09:24:03 PM</span>
-	<span class='label end-time'>Aug 29, 2022 09:24:35 PM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 0m 32s+69ms</span>
+	<span class='label start-time'>Sep 9, 2022 04:14:15 PM</span>
+	<span class='label end-time'>Sep 9, 2022 04:14:27 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 11s+790ms</span>
 </div>
 <div class='test-steps'>
 	<table class='bordered table-results'>
@@ -147,82 +147,37 @@
 		<tbody>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>9:24:07 PM</td>
+				<td class='timestamp'>4:14:17 PM</td>
 				<td class='step-details'>
-						Adım 1.   Tamamlandı  http://www.amazon.com.tr sitesini açılacak ve anasayfanın açıldığını onaylayacak
+						Adım 1   Tamamlandı  http://www.amazon.com.tr sitesini açılacak ve anasayfanın açıldığını onaylayacak
 					
 				</td>
 			</tr>
-			<tr class='log' status='info'>
-				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>9:24:09 PM</td>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>4:14:27 PM</td>
 				<td class='step-details'>
-						Adım 2.  Tamamlandı  Login ekranını açıp, bir kullanıcı ile login olacak ( daha önce siteye üyeliğin varsa o olabilir )
+						<span class='badge white-text red'>EndToEndTest - Test Case Failed</span>
 					
 				</td>
 			</tr>
-			<tr class='log' status='info'>
-				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>9:24:19 PM</td>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>4:14:27 PM</td>
 				<td class='step-details'>
-						Adım 3-4-5   Tamamlandı  Ekranın üstündeki Search alanına 'samsung' yazip 'Ara' butonuna bas
-Sol menüden 'Telefon' sonrasında 'Cep Telefonu' tıklayacak
-Gelen sayfada samsung için sonuç bulunduğunu onaylayacak
+						<span class='badge white-text red'>org.openqa.selenium.json.JsonException: java.lang.reflect.InvocationTargetException
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-8JPTVOM', ip: '192.168.1.102', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.12'
+Driver info: driver.version: RemoteWebDriver - Test Case Failed</span>
 					
 				</td>
 			</tr>
-			<tr class='log' status='info'>
-				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>9:24:21 PM</td>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>4:14:27 PM</td>
 				<td class='step-details'>
-						Adım 6   Tamamlandı  Arama sonuçlarından 2. sayfaya tıklayacak ve açılan sayfada 2. sayfanın şu an gösterimde olduğunu onaylayacak
-					
-				</td>
-			</tr>
-			<tr class='log' status='info'>
-				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>9:24:25 PM</td>
-				<td class='step-details'>
-						Adım 7 8 9   Tamamlandı  5. ürüne tıklayacak
-Ürün detayında 'Beğen' butonuna tıklayacak
-Ürün listenize eklendi. popup kontrolü yapacak
-					
-				</td>
-			</tr>
-			<tr class='log' status='info'>
-				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>9:24:26 PM</td>
-				<td class='step-details'>
-						Adım 10 11   Tamamlandı  Ekranın en üstündeki hesabım alanında 'Beğendiklerim' tıklayacak
-Açılan sayfada bir önceki sayfada beğendiklerime alınmış ürünün bulunduğunu onaylayacak
-					
-				</td>
-			</tr>
-			<tr class='log' status='info'>
-				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>9:24:33 PM</td>
-				<td class='step-details'>
-						Adım 12 13   Tamamlandı  Beğendiklerime alınmış ürün bulunup seçilecek ve sepete eklenecek
-'Ürün sepete eklendi' popup kontrolü yapacak
-					
-				</td>
-			</tr>
-			<tr class='log' status='info'>
-				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>9:24:35 PM</td>
-				<td class='step-details'>
-						Adım 14 15 16   Tamamlandı  Sepetim sayfasına gidecek
-Sepete eklenen bu ürünün içine girilip 'Kaldır' butonuna basılacak, sepetimden çıkarılacak
-Bu ürünün artik sepette olmadığını onaylayacak
-					
-				</td>
-			</tr>
-			<tr class='log' status='pass'>
-				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-				<td class='timestamp'>9:24:35 PM</td>
-				<td class='step-details'>
-						optiimMulakatTestiTesti Başarı ile sonlanmıştır
-					
+						ScreenShot is Attached
+					<img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Projects\Git\SimpleTestCase\ScreenShots\EndToEndTest_20220909041427.png' src='C:\Projects\Git\SimpleTestCase\ScreenShots\EndToEndTest_20220909041427.png' data-src='C:\Projects\Git\SimpleTestCase\ScreenShots\EndToEndTest_20220909041427.png'>
 				</td>
 			</tr>
 		</tbody>
@@ -270,19 +225,19 @@ Bu ürünün artik sepette olmadığını onaylayacak
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Aug 29, 2022 09:24:01 PM</div>
+					<div class='panel-lead'>Sep 9, 2022 04:14:13 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Aug 29, 2022 09:24:36 PM</div>
+			 		<div class='panel-lead'>Sep 9, 2022 04:14:27 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>0h 0m 35s+151ms</div>
+					<div class='panel-lead'>0h 0m 14s+841ms</div>
 				</div>
 			</div>
 			<div class='col s4'>
@@ -318,13 +273,13 @@ Bu ürünün artik sepette olmadığını onaylayacak
 		<script>
 			var statusGroup = {
                 parentCount: 1,
-				passParent: 1,
-				failParent: 0,
+				passParent: 0,
+				failParent: 1,
 				fatalParent: 0,
 				errorParent: 0,
 				warningParent: 0,
 				skipParent: 0,
-				exceptionsParent: 0,
+				exceptionsParent: 1,
 				childCount: 0,
 				passChild: 0,
 				failChild: 0,
@@ -349,7 +304,7 @@ Bu ürünün artik sepette olmadığını onaylayacak
 		</script>
 		<script>
 			var timeline = {
-			        "optiimMulakatTesti":32.069
+			        "EndToEndTest":11.79
 			};
 		</script>
 		<script src='https://cdn.rawgit.com/extent-framework/extent-github-cdn/b65cd69/v3html/js/extent.js' type='text/javascript'></script>

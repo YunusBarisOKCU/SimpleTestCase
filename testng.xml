@@ -7,7 +7,7 @@
     <test name="Test Automation">
         <parameter name="browserName" value="Chrome" />
         <classes>
-            <class name="tests.OptiimTest"/>
+            <class name="tests.BasicTest"/>
         </classes>
     </test>
 </suite>

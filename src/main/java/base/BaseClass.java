@@ -9,7 +9,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.*;
-import utility.managers.ExtentManager;
+import utility.feedbacktools.ExtentManager;
 
 import java.lang.reflect.Method;
 import java.util.concurrent.TimeUnit;
@@ -18,13 +18,12 @@ public class BaseClass {
 
     public static ThreadLocal<RemoteWebDriver> driver = new ThreadLocal<>();//paralel test koşumu için selenium doc
     public static Actions actionBase;
-    //DesiredCapabilities capabilities = new DesiredCapabilities(); //   !!obsolete Bonigarcia dan sonra
 
     @BeforeSuite
     public void Initialize(){
         //raporlama kurulumu
         ExtentManager.setExtent();
-        DOMConfigurator.configure("log4j.xml");//olmaz ise uyarı veriyor sonra bak
+        DOMConfigurator.configure("log4j.xml");//olmaz ise uyarı verir
     }
 
     @BeforeMethod
@@ -39,21 +38,6 @@ public class BaseClass {
     @AfterMethod
     public void afterMethodMethod(/*ITestResult result*/){
         getDriver().quit();
-
-        /*
-        if(result.getStatus()==ITestResult.SUCCESS){
-            String methodName= result.getMethod().getMethodName();
-            String logText = "TestCase: " + methodName + " Passed";
-            Markup m = MarkupHelper.createLabel(logText, ExtentColor.GREEN);
-            extentTest.log(Status.PASS,m);
-        }
-        else if(result.getStatus()==ITestResult.FAILURE){
-            String methodName= result.getMethod().getMethodName();
-            String logText = "TestCase: " + methodName + " Failed";
-            Markup m = MarkupHelper.createLabel(logText, ExtentColor.RED);
-            extentTest.log(Status.FAIL,m);
-        }*///   !!obsolete Suite Listenerden Sonra
-
     }
 
     @AfterSuite
@@ -72,6 +56,9 @@ public class BaseClass {
         } else if (browserName.equalsIgnoreCase("IE")) {
             WebDriverManager.iedriver().setup();
             driver.set(new InternetExplorerDriver());
+        } else {
+            WebDriverManager.chromedriver().setup();
+            driver.set(new ChromeDriver());
         }
         //Maximize the screen
         getDriver().manage().window().maximize();
@@ -101,7 +88,7 @@ public class BaseClass {
             driver = new ChromeDriver(options);
             driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
             System.out.println("if(browserName.equalsIgnoreCase(\"chrome\"))   sonu");
-        }*///   !!Obsolete Bonigarcia geçişden sonra
+        }*///   !!Bonigarcia'ya geçişden sonra geçersiz
     }
 
     public static WebDriver getDriver() {

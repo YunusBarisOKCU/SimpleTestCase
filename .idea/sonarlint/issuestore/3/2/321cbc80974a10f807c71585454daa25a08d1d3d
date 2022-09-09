@@ -1,13 +1,0 @@
-
-c
-java:S1192"FDefine a constant instead of duplicating this literal "XPATH" 4 times.(·éŸø8÷à±í©0
-t
-java:S1104"RMake driver a static final constant or non-public and provide accessors if needed.(ÔèË©úÿÿÿÿ8øà±í©0
-u
-java:S1104"SMake actions a static final constant or non-public and provide accessors if needed.(›€÷ƒùÿÿÿÿ8øà±í©0
-{
-java:S1104"YMake webDriverWait a static final constant or non-public and provide accessors if needed.(ĞæÈÌüÿÿÿÿ8øà±í©0
-n	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(÷çğ¸ûÿÿÿÿ8¥•¸í©0
-v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(½—ÿ•8ùà±í©0
-c
-java:S1172"ARemove these unused method parameters "actions", "webDriverWait".(±Ç¦öÿÿÿÿÿ8á±í©0

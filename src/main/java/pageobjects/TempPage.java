@@ -4,19 +4,15 @@ import actiondriver.Action;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import utility.managers.Log;
+import utility.feedbacktools.Log;
 
 //
 public class TempPage extends BasePage {
 
-    public static String likedProductID;
+    public String likedProductID;
     Action action= new Action();
-    @FindBy(xpath = "")
-    private WebElement tempElement;
 
     //mainpage
-    /*@FindBy(xpath="//*[@id=\"myAccount\"]")
-    private WebElement signInLoginDiv;*/
     @FindBy(xpath="//*[@id=\"nav-link-accountList\"]")
     private WebElement signInLoginDiv;
     @FindBy(xpath="//*[@id=\"nav-flyout-ya-signin\"]/a")
@@ -61,14 +57,22 @@ public class TempPage extends BasePage {
     private WebElement firstProductInLikedList;
     @FindBy(xpath = "//*[@id=\"g-items\"]/li[2]//*[@class=\"a-size-base\"]/a")
     private WebElement firstProductInLikedListLink;
-    @FindBy(id = "add-to-cart-button")
+    @FindBy(xpath = "//*[@id=\"add-to-cart-button\"]")
     private WebElement addToCartButton;
     @FindBy(xpath = "//*[@id=\"sw-atc-details-single-container\"]/div[2]/div/span")
     private WebElement addedToCartNotification;
+    @FindBy(xpath = "//*[@id=\"buybox-see-all-buying-choices\"]/span/a")
+    private WebElement buyingOptionsButton;
+    @FindBy(xpath = "//*[@id=\"a-autoid-2-offer-1\"]/span/input")
+    private WebElement buyingOptionsFirstAddToCartButton;
+    @FindBy(xpath = "//*[@id=\"sw-atc-details-single-container\"]/div[2]/div/span")
+    private WebElement buyingOptionsAddedToCartNotification;
     @FindBy(xpath = "//*[@id=\"nav-cart\"]")
     private WebElement navCart;
     @FindBy(xpath = "//*[@data-item-index=\"1\"]//*[@data-feature-id=\"delete\"]/span/input")
     private WebElement removeFirstItemFromCart;
+    @FindBy(xpath = "//*[@id=\"g-items\"]/li[2]//*[@class=\"a-button a-button-normal a-button-base wl-info-aa_buying_options_button\"]/span/a")
+    private WebElement buyingOptionsButtonOnList;
     @FindBy(xpath = "")
     private WebElement tempElemente;
 
@@ -78,8 +82,6 @@ public class TempPage extends BasePage {
         PageFactory.initElements(getDriver(), this);
     }
 
-
-
     public String launchCheckUrl(String url) throws Throwable {
         if(launchUrl(url))
             return getCurrURL();
@@ -87,12 +89,8 @@ public class TempPage extends BasePage {
             return "Sayfa Açımı Sırasında hata";
     }
 
-
     public boolean login(String userName, String password) throws InterruptedException {
-        //action.fluentWait(getDriver(),signInLoginDiv,3000);
-        //((JavascriptExecutor)getDriver()).executeScript("arguments[0].click()", getDriver().findElement(By.cssSelector("//*[@id=\"login\"]")));
         actionBase.moveToElement(signInLoginDiv).pause(3).build().perform();
-        //action.mouseHoverByJavaScript(signInLoginDiv);
         action.click(getDriver(),signInButton);
         action.type(userNameTextBox,userName);
         action.click(getDriver(),btnLogin);
@@ -108,7 +106,6 @@ public class TempPage extends BasePage {
         action.click(getDriver(),listItemMobilePhone);
         return !action.isDisplayed(getDriver(),isSearchedElementListOnPage);
     }
-
 
     public boolean goAndCheckIfSecondPage() {
         action.click(getDriver(),paginationButton);
@@ -133,8 +130,15 @@ public class TempPage extends BasePage {
 
     public boolean productCartCheck() {
         action.click(getDriver(),firstProductInLikedListLink);
-        action.click(getDriver(),addToCartButton);
-        return addedToCartNotification.getText().contains("Sepete Eklendi");
+        if(action.findElement(getDriver(),addToCartButton)){
+            action.click(getDriver(),addToCartButton);
+            return addedToCartNotification.getText().contains("Sepete Eklendi");
+        }
+        else {
+            action.click(getDriver(),buyingOptionsButton);
+            action.click(getDriver(),buyingOptionsFirstAddToCartButton);
+            return buyingOptionsAddedToCartNotification.getText().contains("Eklendi");
+        }
     }
 
     public boolean removeFromCart() {
