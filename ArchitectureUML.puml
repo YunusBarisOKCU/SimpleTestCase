@@ -1,0 +1,180 @@
+@startuml
+class pageobjects.TempPage {
++ String likedProductID
+~ Action action
+- WebElement signInLoginDiv
+- WebElement signInButton
+- WebElement userNameTextBox
+- WebElement btnLogin
+- WebElement txtPassword
+- WebElement btnEmailSelect
+- WebElement searchBox
+- WebElement searchBoxButton
+- WebElement listItemMobilePhone
+- WebElement paginationButton
+- WebElement paginationButtonClicked
+- WebElement isSearchedElementListOnPage
+- WebElement fiftElement
+- WebElement addToList
+- WebElement viewYourListButton
+- WebElement popUpCloseButton
+- WebElement likedListButton
+- WebElement firstProductInLikedList
+- WebElement firstProductInLikedListLink
+- WebElement addToCartButton
+- WebElement addedToCartNotification
+- WebElement buyingOptionsButton
+- WebElement buyingOptionsFirstAddToCartButton
+- WebElement buyingOptionsAddedToCartNotification
+- WebElement navCart
+- WebElement removeFirstItemFromCart
+- WebElement buyingOptionsButtonOnList
+- WebElement tempElemente
++ String launchCheckUrl(String)
++ boolean login(String,String)
++ boolean searchSpecificProduct(String)
++ boolean goAndCheckIfSecondPage()
++ boolean chooseLikeCheck()
++ boolean getLikedProductIDfromList()
++ boolean productCartCheck()
++ boolean removeFromCart()
+}
+class utility.feedbacktools.ExtentManager {
+- {static} ExtentHtmlReporter htmlReporter
+- {static} ExtentReports extentReports
+- {static} ExtentTest extentTest
++ {static} void setExtent()
++ {static} void createTest(String)
++ {static} void extentInfo(String)
++ {static} void extentLog(Status,String)
++ {static} void extentLog(Status,Markup)
++ {static} void extentFailScreenShot(String)
++ {static} void endReport()
+}
+class utility.excel.ExcelWrite {
+- String outputFileName
+- String sheetName
+# void initialize()
++ void writeToExcel(String[])
+- void export(String[])
+- void streamFlush()
+}
+class tests.BasicTest {
+- TempPage tempPage
++ void EndToEndTest(String,String,String)
+}
+class utility.FeedBackManager {
+- {static} ExcelWrite exel
++ void createExtentTest(String)
++ void infoLog(String,String,String)
++ void log(Status,Markup)
++ void log(Status,String)
++ void testFailScreenshot(String)
+}
+class utility.SuiteListener {
+~ Action action
+~ FeedBackManager feedBackManager
++ void onTestStart(ITestResult)
++ void onTestSuccess(ITestResult)
++ void onTestFailure(ITestResult)
++ void onTestSkipped(ITestResult)
++ void onTestFailedButWithinSuccessPercentage(ITestResult)
++ void onTestFailedWithTimeout(ITestResult)
++ void onStart(ITestContext)
++ void onFinish(ITestContext)
++ void transform(ITestAnnotation,Class,Constructor,Method)
+}
+class pageobjects.TempPageTemplate {
+- WebElement pageObject
++ boolean pageMethodTemplate()
+}
+class base.BaseClass {
++ {static} ThreadLocal<RemoteWebDriver> driver
++ {static} Actions actionBase
++ void Initialize()
++ void beforeMethodMethod(String,Method)
++ void afterMethodMethod()
++ void afterSuite()
++ void setupDriver(String)
++ {static} WebDriver getDriver()
+}
+class pageobjects.BasePage {
+~ Action action
+- WebElement tempElement
++ boolean methodTemplate()
++ String getCurrURL()
++ boolean launchUrl(String)
+}
+interface actioninterface.ActionInterface {
++ void click(WebDriver,WebElement)
++ boolean isDisplayed(WebDriver,WebElement)
++ boolean type(WebElement,String)
++ boolean findElement(WebDriver,WebElement)
++ boolean alert(WebDriver)
++ boolean launchUrl(WebDriver,String)
++ String getCurrentURL(WebDriver)
++ String screenShot(WebDriver,String)
+}
+class actiondriver.Action {
++ void click(WebDriver,WebElement)
++ boolean findElement(WebDriver,WebElement)
++ boolean isDisplayed(WebDriver,WebElement)
++ boolean type(WebElement,String)
++ boolean alert(WebDriver)
++ boolean launchUrl(WebDriver,String)
++ String getCurrentURL(WebDriver)
++ String screenShot(WebDriver,String)
+}
+class dataproviders.DataProviderClass {
+~ ExcelRead obj
++ Object[][] getConstants()
+}
+class utility.RetryAnalyser {
+~ ınt count
+~ ınt retryCount
++ boolean retry(ITestResult)
+}
+class utility.excel.ExcelRead {
+- String inputFileName
+# void initialize()
++ Object[][] getData(String)
+- String getCellData(String,ınt,ınt)
+}
+class utility.feedbacktools.Log {
++ {static} Logger Log
++ {static} void startTestCase(String)
++ {static} void endTestCase(String)
++ {static} void info(String)
++ {static} void warn(String)
++ {static} void error(String)
++ {static} void fatal(String)
++ {static} void debug(String)
+}
+abstract class utility.excel.ExcelBase {
+# String filePath
+# File file
+# FileInputStream inputStream
+# FileOutputStream outputStream
+# Workbook workBook
+# Sheet sheet
+# Row row
+# Cell cell
+# {abstract}void initialize()
+# ınt getRowCount(String)
+# ınt getColumnCount(String)
+# boolean isSheetExist(String)
+}
+
+
+pageobjects.BasePage <|-- pageobjects.TempPage
+utility.excel.ExcelBase <|-- utility.excel.ExcelWrite
+base.BaseClass <|-- tests.BasicTest
+org.testng.ITestListener <|.. utility.SuiteListener
+org.testng.IAnnotationTransformer <|.. utility.SuiteListener
+pageobjects.BasePage <|-- pageobjects.TempPageTemplate
+base.BaseClass <|-- pageobjects.BasePage
+actioninterface.ActionInterface <|.. actiondriver.Action
+base.BaseClass <|-- actiondriver.Action
+org.testng.IRetryAnalyzer <|.. utility.RetryAnalyser
+utility.excel.ExcelBase <|-- utility.excel.ExcelRead
+@enduml
